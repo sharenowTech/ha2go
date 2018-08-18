@@ -1,7 +1,7 @@
 <template>
   <div class="FleetLocationPicker">
     <h4 class="selected-location">
-      <span v-if="activeLocation">
+      <span v-if="activeLocation.location_id">
         {{ activeLocation.city_name }}
         <small>
           <a
