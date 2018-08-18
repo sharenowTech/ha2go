@@ -1,15 +1,35 @@
 <template>
   <div class="FleetMap">
-    MAP
+    <l-map
+      :zoom="zoom"
+      :center="center"
+    >
+      <l-tile-layer
+        :url="url"
+        :attribution="attribution"
+      ></l-tile-layer>
+      <l-marker
+        v-for="(vehicle, i) in vehicles"
+        :key="i"
+        :lat-lng="coordinates(vehicle)"></l-marker>
+    </l-map>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import L from 'leaflet'
+import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
 import marker from '@/assets/icons/marker.svg'
 
 export default {
   name: 'FleetMap',
+
+  components: {
+    LMap,
+    LTileLayer,
+    LMarker
+  },
 
   props: {
     vehicles: {
@@ -23,12 +43,16 @@ export default {
       activeLocation: 'fleet/activeLocation'
     }),
 
-    mapCenter () {
-      const { center } = this.activeLocation.mapSection
-      return {
-        lat: center.latitude,
-        lng: center.longitude
-      }
+    center () {
+      return this.coordinates(this.vehicles[0])
+    },
+
+    zoom: () => 12,
+
+    url: () => 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+
+    attribution: () => {
+      return '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     },
 
     markerIcon () {
@@ -40,9 +64,21 @@ export default {
         }
       }
     }
+  },
+
+  methods: {
+    coordinates (vehicle) {
+      return L.latLng(
+        vehicle.location.gps.coordinates[1],
+        vehicle.location.gps.coordinates[0]
+      )
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.FleetMap {
+  height: 70vh;
+}
 </style>
