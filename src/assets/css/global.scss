@@ -1,0 +1,23 @@
+@import "node_modules/spectre.css/src/spectre";
+@import "@/assets/css/vars.scss";
+
+html {
+  height: 100%;
+}
+
+body {
+  height: inherit;
+  font-size: 14px;
+}
+
+a,
+a:focus,
+a:hover,
+a:active {
+  color: $c-primary;
+}
+
+.section {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
