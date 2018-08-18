@@ -10,7 +10,7 @@
       :pickHandler="toggleDropdown"
     />
     <FleetMap
-      v-if="activeLocation"
+      v-if="activeLocation && vehicles.length"
       :vehicles="vehicles"
     />
   </div>
