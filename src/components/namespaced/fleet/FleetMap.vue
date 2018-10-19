@@ -49,10 +49,10 @@ export default {
 
     zoom: () => 12,
 
-    url: () => 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+    url: () => 'https://{s}.tile.osm.org/{z}/{x}/{y}.png',
 
     attribution: () => {
-      return '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      return '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
     },
 
     markerIcon () {
