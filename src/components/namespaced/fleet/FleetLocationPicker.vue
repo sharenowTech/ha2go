@@ -30,4 +30,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .FleetLocationPicker {
+      text-align: center;
+      margin: 0 0 1rem;
+  }
 </style>

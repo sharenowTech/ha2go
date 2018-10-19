@@ -9,7 +9,14 @@ import Fleet from '@/components/namespaced/fleet/Fleet'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
+    {
+      path: '/docs',
+      beforeEnter () {
+        window.location = 'https://swagger.car2go.io/?url=https://sims.car2go.com/doc/#/'
+      }
+    },
     {
       path: '/',
       name: 'fleet',

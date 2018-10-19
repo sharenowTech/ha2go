@@ -29,7 +29,7 @@ export default {
     // Comes from router
     locationAlias: {
       type: String,
-      default: null
+      default: 'münchen'
     }
   },
 

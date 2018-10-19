@@ -1,6 +1,6 @@
 <template>
   <footer class="TheFooter section">
-    Created for BVG Hackathon 2018
+    CODE TWENTYFOUR 2018
   </footer>
 </template>
 
@@ -13,6 +13,7 @@ export default {
 <style lang="scss">
 .TheFooter {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
 }
 </style>
