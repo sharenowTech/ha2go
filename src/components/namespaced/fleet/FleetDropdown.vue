@@ -1,7 +1,7 @@
 <template>
   <div class="FleetDropdown columns">
     <div
-      v-for="(location, i) in locations"
+      v-for="(location, i) in sort(locations)"
       :key="i"
       class="column col-4 col-sm-6"
     >
@@ -10,6 +10,7 @@
         class="location-link"
         href="#"
       >
+        {{ getFlag(location) }}
         {{ location.city_name }}
       </a>
     </div>
@@ -18,6 +19,7 @@
 
 <script>
 import { mapActions } from 'vuex'
+import emoji from 'country-emoji'
 
 export default {
   name: 'FleetDropdown',
@@ -35,6 +37,18 @@ export default {
       fetchVehicles: 'fleet/fetchVehicles',
       pickLocation: 'fleet/pickLocation'
     }),
+
+    getFlag (location) {
+      return emoji.flag(location.country)
+    },
+
+    sort (arr) {
+      return arr.sort((a, b) => {
+        if (a.country < b.country) return -1
+        if (a.country > b.country) return 1
+        return 0
+      })
+    },
 
     setLocation (location) {
       const locationAlias = location.city_name.toLowerCase()
@@ -58,6 +72,19 @@ export default {
 
 <style lang="scss" scoped>
 .FleetDropdown {
-  margin-bottom: .5rem;
+  padding-bottom: 1rem;
+  position: absolute;
+  background: white;
+  z-index: 10000;
+
+  > div {
+    text-align: center;
+
+    > a {
+      width: 5rem;
+      display: inline-block;
+      text-align: left;
+    }
+  }
 }
 </style>
