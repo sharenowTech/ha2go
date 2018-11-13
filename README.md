@@ -1,6 +1,7 @@
 # ha2go
-Vue.js web app for BVG hackathon 2018   
+Demo web app for events like hackathons   
 API: https://sims.car2go.com/
+Frontend: https://sims.now.sh/
 
 ## Goal
 It should:
