@@ -1,6 +1,6 @@
 <template>
   <footer class="TheFooter section">
-    CODE TWENTYFOUR 2018
+    2018 &copy;&nbsp;<a href="https://twitter.com/car2godevs">car2godevs</a>. all rights reserved.
   </footer>
 </template>
 
